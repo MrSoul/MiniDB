@@ -10,11 +10,18 @@ public class Main {
 	public static void main(String... args) throws IOException, ParseException{ 
 	
 	//firstly, lets read our config file. 
+	Properties prop = new Properties();
+	try {
+        //load a properties file
+		prop.load(new FileInputStream("config.properties"));
+				
+	} catch (IOException ex) {
+		ex.printStackTrace();
+	}
+		
+		DatabaseReader DbR = new DatabaseReader(prop.getProperty("inputfile"));
+		Scanner in = new Scanner(System.in);
 	
-	
-	Scanner in = new Scanner(System.in);
-	DatabaseReader DbR = new DatabaseReader("DB.txt");
-
 	// Invitation
 	System.out.println("Database system started. Waiting instructions...");
 	do {
@@ -23,7 +30,8 @@ public class Main {
 			if (input.equals("quit")) break;
 			myQuery Q = new myQuery(input);
 			Q.array_query(DbR.populate());
-} while (true);
+		} while (true);
 	in.close();
 	}
+	
 }
