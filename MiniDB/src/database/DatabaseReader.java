@@ -1,12 +1,9 @@
 package database;
 
 import java.io.* ;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
+import entities.*;
 
-import entities.Human;
-import entities.Student;
-import entities.Teacher;
 
 enum TypeSwitch {
 	Teacher, Student
