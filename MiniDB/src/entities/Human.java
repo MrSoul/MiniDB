@@ -5,7 +5,7 @@ import java.util.*;
 
 public abstract class Human extends DbNote {
 
-	public static String NOTE_TYPE = "Human";
+	protected static String NOTE_TYPE = "Human";
 	private String name;
 	private Date birthDate;
 
@@ -34,7 +34,7 @@ public abstract class Human extends DbNote {
 	}
 
 	public String getNoteType() {
-		return "Human";
+		return NOTE_TYPE;
 	}
 
 	public void countAge() {

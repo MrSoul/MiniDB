@@ -5,7 +5,7 @@ import java.util.*;
 public abstract class DbNote {
 
 	// Fields
-	public static String NOTE_TYPE = "Type";
+	protected static String NOTE_TYPE = "Type";
 	@SuppressWarnings("unused")
 	private String name;
 	@SuppressWarnings("unused")

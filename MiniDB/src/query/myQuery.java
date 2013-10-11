@@ -16,9 +16,9 @@ enum PrintType {
 public class myQuery {
 
 	// fields
-	ArrayList<Requirement> reqs = new ArrayList<Requirement>();
-	SortType sortSwitcher = SortType.noSort;
-	PrintType outFormat = PrintType.simplePrint;
+	private ArrayList<Requirement> reqs = new ArrayList<Requirement>();
+	private SortType sortSwitcher = SortType.noSort;
+	private PrintType outFormat = PrintType.simplePrint;
 
 	public myQuery() {
 	}

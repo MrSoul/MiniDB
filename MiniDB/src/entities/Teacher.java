@@ -4,7 +4,7 @@ import java.util.*;
 public class Teacher extends Human{
 	
 	//Fields
-	public static String NOTE_TYPE = "teacher";
+	protected String NOTE_TYPE = "teacher";
 	
 	private String subject;	
 	//Constructors
@@ -33,6 +33,6 @@ public class Teacher extends Human{
 		return subject;
 	}
 	public String getNoteType()
-	{return "teacher";}
+	{return NOTE_TYPE;}
 
 }
