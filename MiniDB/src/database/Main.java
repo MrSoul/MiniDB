@@ -3,23 +3,16 @@ package database;
 import java.text.ParseException;
 import java.util.*;
 import java.io.*;
+import entities.*;
 import query.*;
 
 public class Main {
 	
 	public static void main(String... args) throws IOException, ParseException{ 
 	
-	//firstly, lets read our config file. 
-	Properties prop = new Properties();
-	try {
-        //load a properties file
-		prop.load(new FileInputStream("config.properties"));
-				
-	} catch (IOException ex) {
-		ex.printStackTrace();
-	}
+		final Reader dbReader = DBReaderFactory.instance.getReader();
+		LinkedList<Human> data = dbReader.readDatabase();
 		
-		DatabaseReader DbR = new DatabaseReader(prop.getProperty("inputfile"));
 		Scanner in = new Scanner(System.in);
 	
 	// Invitation
@@ -29,7 +22,7 @@ public class Main {
 			String input = in.nextLine();
 			if (input.equals("quit")) break;
 			myQuery Q = new myQuery(input);
-			Q.array_query(DbR.populate());
+			Q.array_query(data);
 		} while (true);
 	in.close();
 	}

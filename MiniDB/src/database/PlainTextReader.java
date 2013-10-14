@@ -5,18 +5,20 @@ import java.util.*;
 import entities.*;
 
 
-enum TypeSwitch {
-	Teacher, Student
-}
 
-public class DatabaseReader {
+
+public class PlainTextReader implements Reader {
 	
+	public static enum TypeSwitch{
+		Student,
+		Teacher
+	}
 	//fieslds
 	private ArrayList<String> strings ;
 	private LinkedList<Human> people ;
 	private BufferedReader reader;
 	
-	public DatabaseReader(String filename)throws IOException {
+	public PlainTextReader(String filename)throws IOException {
 		final FileInputStream fis = new FileInputStream(filename);
 		strings = new ArrayList<String>() ;
 		people = new LinkedList<Human>();
@@ -24,12 +26,11 @@ public class DatabaseReader {
 	}
 
 	@SuppressWarnings("static-access")
-	public LinkedList<Human> populate() {
+	public LinkedList<Human> readDatabase() {
 		
 		String noteType;
 		TypeSwitch typeSwitcher = null;
-		String line = System.getProperty("user.dir");
-		// System.out.println(line);
+		String line;
 		try {
 
 			while ((line = reader.readLine()) != null) { // Читаем до конца
