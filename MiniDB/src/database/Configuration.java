@@ -28,10 +28,10 @@ public class Configuration {
 		}
 	
 	public DBReaderFactory.SOURCE_FORMAT getSourceFormat() {
-	DBReaderFactory.SOURCE_FORMAT source = DBReaderFactory.SOURCE_FORMAT.TXT;
+	DBReaderFactory.SOURCE_FORMAT source;
 		if((prop.getProperty("containerType"))== "TXT")
 			{source = DBReaderFactory.SOURCE_FORMAT.TXT;} 
-		else if ((prop.getProperty("containerType"))=="XML")
+		else //((prop.getProperty("containerType"))=="XML")
 			{source = DBReaderFactory.SOURCE_FORMAT.XML;}
 		return source;
 	}
