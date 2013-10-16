@@ -17,8 +17,14 @@ public class XmlReader implements Reader {
 	private final Document doc;
 	
 	
+<<<<<<< HEAD
 	public XmlReader() throws SAXException, IOException, ParserConfigurationException {
 	final Configuration config = Configuration.instance();	
+=======
+	public XmlReader(String fileName) throws SAXException, IOException, ParserConfigurationException {
+	
+	
+>>>>>>> refs/heads/Feature-DTO
 	data = new LinkedList<Human>();
 	File fXmlFile = new File(config.getFileName());
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -78,4 +84,6 @@ public class XmlReader implements Reader {
 		init.add(getText(e,"subject"));
 		return new Teacher(init);
 	}
+	
+	
 }
