@@ -11,6 +11,9 @@ import java.io.*;
 import java.text.ParseException;
 import java.util.*;
 
+import dto.*;
+
+
 public class XmlReader implements Reader {
 	
 	private LinkedList<Human> data;
@@ -63,13 +66,15 @@ public class XmlReader implements Reader {
 	}
 	
 	private Student readStudent(Element e){
-		ArrayList<String> init = new ArrayList<String>();
-		init.add("student");
-		init.add(getText(e,"name"));
-		init.add(getText(e,"birthDate"));
-		init.add(getText(e,"groupName"));
-		init.add(getText(e,"faculty"));
-		 return new Student(init);
+		final StudentDTOBuilder builder = new StudentDTOBuilder(); 
+		return new Student(
+		builder 
+		.name(getText(e,"name"))
+		.birthday(getText(e,"birthDate"))
+		.groupName(getText(e,"groupName"))
+		.faculty(getText(e,"faculty"))
+		.build()
+		 );
 	}
 	
 	private Teacher readTeacher(Element e){

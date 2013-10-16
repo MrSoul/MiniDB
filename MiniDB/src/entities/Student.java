@@ -2,6 +2,8 @@ package entities;
 
 import java.util.*;
 
+import dto.StudentDTO;
+
 public class Student extends Human {
 
 	// Fields
@@ -22,6 +24,15 @@ public class Student extends Human {
 		setBirthDate(arr.get(2));
 		setGroup(Integer.parseInt(arr.get(3)));
 		setFaculty(arr.get(4));
+	}
+
+	
+	public Student(StudentDTO dto) {
+		setName(dto.name);
+		setBirthDate(dto.birthDate);
+		setGroup(Integer.parseInt(dto.groupName));
+		setFaculty(dto.faculty);
+		
 	}
 
 	// Inheritance overrided methods
