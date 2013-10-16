@@ -18,14 +18,11 @@ public class PlainTextReader implements Reader {
 	private ArrayList<String> strings ;
 	private LinkedList<Human> people ;
 	private BufferedReader reader;
-	private Configuration config = Configuration.instance();
+	
 	
 	public PlainTextReader()throws IOException {
-<<<<<<< HEAD
+
 		final Configuration config = Configuration.instance();
-=======
-		
->>>>>>> refs/heads/Feature-DTO
 		final FileInputStream fis = new FileInputStream(config.getFileName());
 		strings = new ArrayList<String>() ;
 		people = new LinkedList<Human>();

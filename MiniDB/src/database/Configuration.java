@@ -29,7 +29,7 @@ public class Configuration {
 
 	public DBReaderFactory.SOURCE_FORMAT getSourceFormat() {
 		DBReaderFactory.SOURCE_FORMAT source;
-<<<<<<< HEAD
+
 
 		if (prop.getProperty("containerType").equals("TXT")) {
 			source = DBReaderFactory.SOURCE_FORMAT.TXT;
@@ -39,16 +39,7 @@ public class Configuration {
 
 		//System.out.println(source.toString());
 		return source;
-=======
-		if((prop.getProperty("containerType")) == "TXT")
-			{ source = DBReaderFactory.SOURCE_FORMAT.TXT ;
-			return source;
-			}	else 
-			{source = DBReaderFactory.SOURCE_FORMAT.XML;
-				return source;}
-		
->>>>>>> refs/heads/Feature-DTO
-	}
+}
 
 	public String getFileName() {
 		return prop.getProperty("inputfile");
