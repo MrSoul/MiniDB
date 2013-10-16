@@ -20,7 +20,6 @@ public class DBReaderFactory {
 			
 		public Reader getReader() throws IOException, SAXException, ParserConfigurationException{
 		
-			if(config.getSourceFormat() == SOURCE_FORMAT.TXT){
 			SOURCE_FORMAT format = config.getSourceFormat();
 			if(format == SOURCE_FORMAT.TXT){
 				return new PlainTextReader();
