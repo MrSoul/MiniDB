@@ -6,9 +6,9 @@ import java.io.*;
 public class Configuration {
 
 	private static Configuration instance;
-	private Properties prop = new Properties();   
-	
-	private Configuration(){
+	private Properties prop = new Properties();
+
+	private Configuration() {
 		try {
 			prop.load(new FileInputStream("config.properties"));
 		} catch (FileNotFoundException e) {
@@ -19,28 +19,29 @@ public class Configuration {
 			e.printStackTrace();
 		}
 	}
-	
-	public static Configuration instance(){
-		if (instance==null){
+
+	public static Configuration instance() {
+		if (instance == null) {
 			instance = new Configuration();
 		}
 		return instance;
-		}
-	
+	}
+
 	public DBReaderFactory.SOURCE_FORMAT getSourceFormat() {
-	DBReaderFactory.SOURCE_FORMAT source;
-		if((prop.getProperty("containerType"))== "TXT")
-			{source = DBReaderFactory.SOURCE_FORMAT.TXT;} 
-		else //((prop.getProperty("containerType"))=="XML")
-			{source = DBReaderFactory.SOURCE_FORMAT.XML;}
+		DBReaderFactory.SOURCE_FORMAT source;
+
+		if (prop.getProperty("containerType").equals("TXT")) {
+			source = DBReaderFactory.SOURCE_FORMAT.TXT;
+		} else {
+			source = DBReaderFactory.SOURCE_FORMAT.XML;
+		}
+
+		//System.out.println(source.toString());
 		return source;
 	}
-	
-	public String getFileName(){
+
+	public String getFileName() {
 		return prop.getProperty("inputfile");
 	}
 
 }
-	
-
-

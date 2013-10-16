@@ -18,8 +18,9 @@ public class PlainTextReader implements Reader {
 	private LinkedList<Human> people ;
 	private BufferedReader reader;
 	
-	public PlainTextReader(String filename)throws IOException {
-		final FileInputStream fis = new FileInputStream(filename);
+	public PlainTextReader()throws IOException {
+		final Configuration config = Configuration.instance();
+		final FileInputStream fis = new FileInputStream(config.getFileName());
 		strings = new ArrayList<String>() ;
 		people = new LinkedList<Human>();
 		reader = new BufferedReader(new InputStreamReader(fis));

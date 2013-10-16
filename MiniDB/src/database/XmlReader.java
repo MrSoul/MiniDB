@@ -17,10 +17,10 @@ public class XmlReader implements Reader {
 	private final Document doc;
 	
 	
-	public XmlReader(String fileName) throws SAXException, IOException, ParserConfigurationException {
-		
+	public XmlReader() throws SAXException, IOException, ParserConfigurationException {
+	final Configuration config = Configuration.instance();	
 	data = new LinkedList<Human>();
-	File fXmlFile = new File(fileName);
+	File fXmlFile = new File(config.getFileName());
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	doc = dBuilder.parse(fXmlFile);

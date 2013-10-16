@@ -22,10 +22,9 @@ public class DBReaderFactory {
 		public Reader getReader() throws IOException, SAXException, ParserConfigurationException{
 			
 			if(config.getSourceFormat() == SOURCE_FORMAT.TXT){
-				System.out.println("Txt reader created");
-				return new PlainTextReader(config.getFileName());
+				return new PlainTextReader();
 				}	else {
-				return new XmlReader(config.getFileName());
+				return new XmlReader();
 				}
 			
 			
