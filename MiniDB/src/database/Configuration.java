@@ -28,12 +28,14 @@ public class Configuration {
 		}
 	
 	public DBReaderFactory.SOURCE_FORMAT getSourceFormat() {
-	DBReaderFactory.SOURCE_FORMAT source;
-		if((prop.getProperty("containerType"))== "TXT")
-			{source = DBReaderFactory.SOURCE_FORMAT.TXT;} 
-		else //((prop.getProperty("containerType"))=="XML")
-			{source = DBReaderFactory.SOURCE_FORMAT.XML;}
-		return source;
+		DBReaderFactory.SOURCE_FORMAT source;
+		if((prop.getProperty("containerType")) == "TXT")
+			{ source = DBReaderFactory.SOURCE_FORMAT.TXT ;
+			return source;
+			}	else 
+			{source = DBReaderFactory.SOURCE_FORMAT.XML;
+				return source;}
+		
 	}
 	
 	public String getFileName(){

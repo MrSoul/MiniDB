@@ -18,7 +18,8 @@ public class XmlReader implements Reader {
 	
 	
 	public XmlReader(String fileName) throws SAXException, IOException, ParserConfigurationException {
-		
+	
+	
 	data = new LinkedList<Human>();
 	File fXmlFile = new File(fileName);
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -78,4 +79,6 @@ public class XmlReader implements Reader {
 		init.add(getText(e,"subject"));
 		return new Teacher(init);
 	}
+	
+	
 }
