@@ -13,23 +13,21 @@ import java.util.*;
 
 import dto.*;
 
-
 public class XmlReader implements Reader {
-	
+
 	private LinkedList<Human> data;
 	private final Document doc;
-	
-	
 
-	public XmlReader() throws SAXException, IOException, ParserConfigurationException {
-	
-	data = new LinkedList<Human>();
-	final Configuration config = Configuration.instance();
-	File fXmlFile = new File(config.getFileName());
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-	doc = dBuilder.parse(fXmlFile);
-	doc.getDocumentElement().normalize();
+	public XmlReader() throws SAXException, IOException,
+			ParserConfigurationException {
+
+		data = new LinkedList<Human>();
+		final Configuration config = Configuration.instance();
+		File fXmlFile = new File(config.getFileName());
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		doc = dBuilder.parse(fXmlFile);
+		doc.getDocumentElement().normalize();
 	}
 
 	@Override
@@ -37,23 +35,23 @@ public class XmlReader implements Reader {
 		// TODO Auto-generated method stub
 		final List<Element> sList = readEntity("Student");
 		final List<Element> tList = readEntity("Teacher");
-		
-		for (Element e: sList){
+
+		for (Element e : sList) {
 			data.add(readStudent(e));
 		}
-		for (Element e: tList){
+		for (Element e : tList) {
 			data.add(readTeacher(e));
 		}
 		return data;
 	}
 
-	private List<Element> readEntity(String name){
+	private List<Element> readEntity(String name) {
 		final NodeList nList = doc.getElementsByTagName(name);
 		final ArrayList<Element> result = new ArrayList<Element>();
-		
-		for (int i=0; i < nList.getLength(); i++){
+
+		for (int i = 0; i < nList.getLength(); i++) {
 			Node nNode = nList.item(i);
-			if (nNode.getNodeType()==Node.ELEMENT_NODE) {
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) nNode;
 				result.add(eElement);
 			}
@@ -61,30 +59,25 @@ public class XmlReader implements Reader {
 		return result;
 	}
 
-	private String getText(Element e, String name){
+	private String getText(Element e, String name) {
 		return e.getElementsByTagName(name).item(0).getTextContent();
 	}
-	
-	private Student readStudent(Element e){
-		final StudentDTOBuilder builder = new StudentDTOBuilder(); 
-		return new Student(
-		builder 
-		.name(getText(e,"name"))
-		.birthday(getText(e,"birthDate"))
-		.groupName(getText(e,"groupName"))
-		.faculty(getText(e,"faculty"))
-		.build()
-		 );
+
+	private Student readStudent(Element e) {
+		final StudentDTOBuilder builder = new StudentDTOBuilder();
+		return new Student(builder.name(getText(e, "name"))
+				.birthday(getText(e, "birthDate"))
+				.groupName(getText(e, "groupName"))
+				.faculty(getText(e, "faculty")).build());
 	}
-	
-	private Teacher readTeacher(Element e){
+
+	private Teacher readTeacher(Element e) {
 		ArrayList<String> init = new ArrayList<String>();
 		init.add("teacher");
-		init.add(getText(e,"name"));
-		init.add(getText(e,"birthDate"));
-		init.add(getText(e,"subject"));
+		init.add(getText(e, "name"));
+		init.add(getText(e, "birthDate"));
+		init.add(getText(e, "subject"));
 		return new Teacher(init);
 	}
-	
-	
+
 }

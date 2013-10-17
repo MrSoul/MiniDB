@@ -6,9 +6,7 @@ import entities.*;
 import java.io.*;
 
 public interface Reader {
-	
-	LinkedList<Human> readDatabase() throws IOException,ParseException;
+
+	LinkedList<Human> readDatabase() throws IOException, ParseException;
 
 }
-
-

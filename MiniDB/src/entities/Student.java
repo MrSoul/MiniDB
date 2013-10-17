@@ -26,13 +26,12 @@ public class Student extends Human {
 		setFaculty(arr.get(4));
 	}
 
-	
 	public Student(StudentDTO dto) {
 		setName(dto.name);
 		setBirthDate(dto.birthDate);
 		setGroup(Integer.parseInt(dto.groupName));
 		setFaculty(dto.faculty);
-		
+
 	}
 
 	// Inheritance overrided methods

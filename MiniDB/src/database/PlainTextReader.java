@@ -1,37 +1,33 @@
 package database;
 
-import java.io.* ;
+import java.io.*;
 import java.util.*;
 
 import entities.*;
 
-
-
-
 public class PlainTextReader implements Reader {
-	
-	public static enum TypeSwitch{
-		Student,
-		Teacher
+
+	public static enum TypeSwitch {
+		Student, Teacher
 	}
-	//fieslds
-	private ArrayList<String> strings ;
-	private LinkedList<Human> people ;
+
+	// fieslds
+	private ArrayList<String> strings;
+	private LinkedList<Human> people;
 	private BufferedReader reader;
-	
-	
-	public PlainTextReader()throws IOException {
+
+	public PlainTextReader() throws IOException {
 
 		final Configuration config = Configuration.instance();
 		final FileInputStream fis = new FileInputStream(config.getFileName());
-		strings = new ArrayList<String>() ;
+		strings = new ArrayList<String>();
 		people = new LinkedList<Human>();
 		reader = new BufferedReader(new InputStreamReader(fis));
 	}
 
 	@SuppressWarnings("static-access")
 	public LinkedList<Human> readDatabase() {
-		
+
 		String noteType;
 		TypeSwitch typeSwitcher = null;
 		String line;
@@ -52,7 +48,7 @@ public class PlainTextReader implements Reader {
 				if (noteType.equals("Student"))
 					typeSwitcher = typeSwitcher.Student;
 				switch (typeSwitcher) {
-				
+
 				case Teacher:
 					people.add(new Teacher(strings));
 					break;

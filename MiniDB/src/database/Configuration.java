@@ -30,16 +30,15 @@ public class Configuration {
 	public DBReaderFactory.SOURCE_FORMAT getSourceFormat() {
 		DBReaderFactory.SOURCE_FORMAT source;
 
-
 		if (prop.getProperty("containerType").equals("TXT")) {
 			source = DBReaderFactory.SOURCE_FORMAT.TXT;
 		} else {
 			source = DBReaderFactory.SOURCE_FORMAT.XML;
 		}
 
-		//System.out.println(source.toString());
+		// System.out.println(source.toString());
 		return source;
-}
+	}
 
 	public String getFileName() {
 		return prop.getProperty("inputfile");
