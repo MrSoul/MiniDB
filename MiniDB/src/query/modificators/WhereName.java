@@ -16,4 +16,10 @@ public class WhereName implements Requirement {
 		return res;
 	}
 
+	@Override
+	public boolean parseCommand(String command) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
