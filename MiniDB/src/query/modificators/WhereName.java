@@ -3,7 +3,7 @@ package query.modificators;
 import entities.*;
 import query.*;
 
-public class WhereName extends Requirement {
+public class WhereName implements Requirement {
 
 	String Comparanda;
 

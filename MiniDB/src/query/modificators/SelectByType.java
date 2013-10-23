@@ -3,7 +3,7 @@ package query.modificators;
 import entities.*;
 import query.*;
 
-public class SelectByType extends Requirement {
+public class SelectByType implements Requirement {
 	boolean res = false;
 	String Comparanda;
 
