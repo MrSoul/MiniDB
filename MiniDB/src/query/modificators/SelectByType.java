@@ -13,13 +13,17 @@ public class SelectByType implements Requirement {
 
 	public boolean execute(Human h) {
 		res = h.getNoteType().equals(Comparanda);
-		// System.out.println(h.getNoteType() + " " + Comparanda );
 		return res;
 	}
 
-	@Override
+
 	public boolean parseCommand(String command) {
-		// TODO Auto-generated method stub
+		String[] splits = command.split(" ");
+		
+		for (int i = 0; i < splits.length; i++) {
+			if (splits[i].equals("select") && (splits[i + 1].equals("teacher") || splits[i + 1].equals("student"))) {
+			return true;}
+			}
 		return false;
 	}
 
