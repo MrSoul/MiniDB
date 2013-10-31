@@ -4,27 +4,34 @@ import entities.*;
 import query.*;
 
 public class SelectByType implements Requirement {
-	boolean res = false;
-	String Comparanda;
+	boolean executable = false;
+	String comparanda;
 
 	public SelectByType(String s) {
-		Comparanda = s;
+		comparanda = s;
 	}
 
 	public boolean execute(Human h) {
-		res = h.getNoteType().equals(Comparanda);
+		boolean res = h.getNoteType().equals(comparanda);
 		return res;
 	}
 
 
-	public boolean parseCommand(String command) {
+	public void parseCommand(String command) {
 		String[] splits = command.split(" ");
-		
+
 		for (int i = 0; i < splits.length; i++) {
-			if (splits[i].equals("select") && (splits[i + 1].equals("teacher") || splits[i + 1].equals("student"))) {
-			return true;}
+			if (splits[i].equals("select")
+					&& (splits[i + 1].equals("teacher") || splits[i + 1]
+							.equals("student"))) {
+				this.executable = true;
+				this.comparanda = splits[i + 1];
 			}
-		return false;
+		}
+	}
+
+	public boolean canExecute() {
+			return executable;
 	}
 
 }

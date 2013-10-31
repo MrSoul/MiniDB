@@ -4,5 +4,6 @@ import entities.*;
 
 public interface Requirement {
 		public boolean execute(Human h);
-		public boolean parseCommand(String command);
+		public void parseCommand(String command);
+		public boolean canExecute();
 }

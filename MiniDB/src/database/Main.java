@@ -3,13 +3,11 @@ package database;
 import java.text.ParseException;
 import java.util.*;
 import java.io.*;
-
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
-
 import entities.*;
 import query.*;
+
 
 public class Main {
 
